@@ -1,6 +1,7 @@
+import dynamic from "next/dynamic";
 import { useState } from "react";
-import Chart from "react-apexcharts";
 import styles from "./chart.module.css";
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 const SalesChart = () => {
   const [chartType, setChartType] = useState("monthly");
 
