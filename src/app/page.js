@@ -24,7 +24,9 @@ export default function Home() {
           <div className={styles.chart1}>
             <SalesChart />
           </div>
-          <div className={styles.chart2}>{/* <DonutChart /> */}</div>
+          <div className={styles.chart2}>
+            <DonutChart />
+          </div>
         </div>
         <div className={styles.container}>
           <SalesTable />

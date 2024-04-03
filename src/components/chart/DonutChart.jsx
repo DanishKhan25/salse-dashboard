@@ -22,7 +22,9 @@ const DonutChart = ({ newCustomers }) => {
       }}
     >
       <h3 style={{ textAlign: "center" }}>New Customers</h3>
-      <Chart options={options} series={series} type="donut" height={250} />
+      {typeof window !== "undefined" && (
+        <Chart options={options} series={series} type="donut" height={250} />
+      )}
     </div>
   );
 };

@@ -98,17 +98,20 @@ const SalesChart = () => {
           </select>
         </div>
       </div>
-
-      <Chart
-        options={
-          chartType === "monthly" ? monthlyData.options : quarterlyData.options
-        }
-        series={
-          chartType === "monthly" ? monthlyData.series : quarterlyData.series
-        }
-        type="bar"
-        height={250}
-      />
+      {typeof window !== "undefined" && (
+        <Chart
+          options={
+            chartType === "monthly"
+              ? monthlyData.options
+              : quarterlyData.options
+          }
+          series={
+            chartType === "monthly" ? monthlyData.series : quarterlyData.series
+          }
+          type="bar"
+          height={250}
+        />
+      )}
     </div>
   );
 };
