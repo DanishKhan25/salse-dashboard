@@ -1,7 +1,11 @@
 "use client";
 import Dashboard from "@/app/assets/icons/Dashboard";
-import KeyIcon from "@/app/assets/icons/KeyIcon";
 import { useState } from "react";
+import { BiSolidOffer } from "react-icons/bi";
+import { FaAddressBook, FaArchive, FaWallet } from "react-icons/fa";
+import { MdDashboard } from "react-icons/md";
+import { RiCustomerServiceFill } from "react-icons/ri";
+
 import classes from "./sidebar.module.css";
 const Sidebar = () => {
   const [active, setActive] = useState(0);
@@ -9,37 +13,37 @@ const Sidebar = () => {
     {
       id: 0,
       label: "Dashboard",
-      icon: <KeyIcon width={16} height={16} />,
+      icon: <MdDashboard width={16} height={16} />,
       path: "/",
     },
     {
       id: 1,
       label: "Product",
-      icon: <KeyIcon width={16} height={16} />,
+      icon: <FaArchive width={16} height={16} />,
       path: "/",
     },
     {
       id: 2,
       label: "Customers",
-      icon: <KeyIcon width={16} height={16} />,
+      icon: <FaAddressBook width={16} height={16} />,
       path: "/",
     },
     {
       id: 3,
       label: "Income",
-      icon: <KeyIcon width={16} height={16} />,
+      icon: <FaWallet width={16} height={16} />,
       path: "/",
     },
     {
       id: 4,
       label: "Promote",
-      icon: <KeyIcon width={16} height={16} />,
+      icon: <BiSolidOffer width={16} height={16} />,
       path: "/",
     },
     {
       id: 5,
       label: "Help",
-      icon: <KeyIcon width={16} height={16} />,
+      icon: <RiCustomerServiceFill width={16} height={16} />,
       path: "/",
     },
   ];

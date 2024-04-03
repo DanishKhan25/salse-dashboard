@@ -1,6 +1,7 @@
 .main {
   display: flex;
-  height: 100vh;
+min-height  : 100vh;
+  
 }
 
 .sidebar {
@@ -13,11 +14,35 @@
   background-color: #f5f6f8;
   flex: 1;
   padding: 24px;
+  display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
-
+.container{
+  display: flex;  
+  gap: 10px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.chart1{
+flex-basis: 70%;
+}
+.chart2{
+  flex-basis: 25%;
+}
 @media screen and (max-width: 768px) {
   .sidebar {
     max-width: 40px;
-    min-width: 15px !important;
+    min-width: 40px !important;
   }
+     .container {
+       flex-direction: column;
+       /* Stack charts on top of each other */
+     }
+  
+     .chart1,
+     .chart2 {
+       flex-basis: 100%;
+       /* Take up full width */
+     }
 }

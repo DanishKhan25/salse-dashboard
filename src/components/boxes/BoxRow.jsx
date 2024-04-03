@@ -11,28 +11,30 @@ const BoxRow = () => {
         icon={<RiExchangeDollarLine size={40} color="green" />}
         text1="Earnings"
         text2="$198k"
-        text3="+37% this month"
+        text3="+37% "
         iconColor="#e3fff0"
       />
       <Box
         icon={<FaNewspaper size={40} color="purple" />}
         text1="Order"
         text2="$198k"
-        text3="+37% this month"
+        text3="-37% "
         iconColor="#e7dbff"
+        red
       />
       <Box
         icon={<FaWallet size={40} color="navy" />}
         text1="Balance"
         text2="$198k"
-        text3="+37% this month"
+        text3="-37% "
         iconColor="#cef4ff"
+        red
       />
       <Box
         icon={<TbShoppingBag size={40} color="orange" />}
         text1="Total Sales"
         text2="$198k"
-        text3="+37% this month"
+        text3="+37%"
         iconColor="#febadf"
       />
     </div>

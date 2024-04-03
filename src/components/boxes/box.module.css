@@ -2,8 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-between;
 }
 
 .box {
@@ -15,6 +15,7 @@
   background-color: #fff;
   border-radius: 10px;
   gap: 10px;
+  min-width: 230px;
 }
 
 .icon {
@@ -23,8 +24,8 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
 }
 
 .text {
@@ -46,8 +47,19 @@
   font-size: 12px;
   color: green;
 }
-@media (max-width: 768px) {
+.boxRedText {
+  font-size: 12px;
+  color: red;
+}
+.boxText {
+  font-size: 12px;
+  color: #2d2d2d;
+}
+@media screen and (max-width: 768px) {
   .box {
-    width: 50%; /* Two boxes in a row for smaller screens */
+    width: 40%; /* Two boxes in a row for smaller screens */
+  }
+  .container {
+    justify-content: center;
   }
 }
