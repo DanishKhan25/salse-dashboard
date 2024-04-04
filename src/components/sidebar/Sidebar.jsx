@@ -51,9 +51,8 @@ const Sidebar = () => {
   return (
     <main className={classes.sidebarWrapper}>
       <div className={classes.logoWrapper}>
-        <div className={classes.icon}>
-          <Dashboard width={24} height={24} fill="#fff" />
-        </div>
+        <Dashboard width={24} height={24} fill="#fff" />
+
         <h1 className={classes.logo}>Dashboard</h1>
       </div>
       <nav className={classes.nav}>
@@ -66,7 +65,7 @@ const Sidebar = () => {
               backgroundColor: active === link.id ? "#2d2d69" : "transparent",
             }}
           >
-            <div className={classes.icon}>{link?.icon}</div>
+            {link?.icon}
             <div className={classes.label}>{link?.label}</div>
           </div>
         ))}

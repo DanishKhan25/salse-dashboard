@@ -1,79 +1,87 @@
-import dynamic from "next/dynamic";
+"use client";
 import { useState } from "react";
+import { Bar } from "react-chartjs-2";
 import styles from "./chart.module.css";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+
+import { Chart as ChartJS } from "chart.js/auto";
+
+import {
+  CategoryScale,
+  Legend,
+  LineElement,
+  LinearScale,
+  PointElement,
+  Title,
+  Tooltip,
+} from "chart.js";
+
 const SalesChart = () => {
   const [chartType, setChartType] = useState("monthly");
-
-  const monthlyData = {
-    series: [
-      {
-        name: "Sales",
-        data: [30, 40, 45, 50, 49, 60, 70, 91, 125, 150, 170, 190],
-      },
-    ],
-    options: {
-      chart: {
-        type: "bar",
-        height: 350,
-        toolbar: {
-          show: false,
-        },
-      },
-      xaxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
-      },
-      yaxis: {
-        show: false,
-      },
-      title: {
-        text: "Overview",
-        align: "left",
-      },
-    },
-  };
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
 
   const quarterlyData = {
-    series: [
+    labels: ["Q1", "Q2", "Q3", "Q4"],
+    datasets: [
       {
-        name: "Sales",
-        data: [115, 255, 445, 510],
+        label: "Quarterly Data",
+        data: [100, 150, 200, 250], // Sample quarterly data
+        backgroundColor: "rgba(54, 162, 235, 0.2)",
+        borderColor: "rgba(54, 162, 235, 1)",
+        borderWidth: 1,
       },
     ],
-    options: {
-      chart: {
-        type: "bar",
-        height: 350,
-        toolbar: {
-          show: false,
+  };
+  const options = {
+    scales: {
+      y: {
+        display: false,
+      },
+
+      x: {
+        title: {
+          display: true,
+          text: "Sales Data",
+          font: {
+            size: 20,
+          },
+          position: "top",
         },
-      },
-      xaxis: {
-        categories: ["Q1", "Q2", "Q3", "Q4"],
-      },
-      yaxis: {
-        show: false,
-      },
-      title: {
-        text: "Overview",
-        align: "left",
       },
     },
   };
-
+  const chartData = {
+    labels: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ],
+    datasets: [
+      {
+        label: "Overview",
+        data: [100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650],
+        backgroundColor: "rgba(54, 162, 235, 0.5)",
+        borderColor: "rgba(54, 162, 235, 1)",
+        borderWidth: 0,
+      },
+    ],
+  };
   const handleChange = (e) => {
     setChartType(e.target.value);
   };
@@ -86,7 +94,7 @@ const SalesChart = () => {
         </div>
         <div>
           <label htmlFor="chartType" className={styles.label}>
-            Select Chart Type:{" "}
+            Select Chart Type:
           </label>
           <select
             id="chartType"
@@ -99,20 +107,12 @@ const SalesChart = () => {
           </select>
         </div>
       </div>
-      {typeof window !== "undefined" && (
-        <Chart
-          options={
-            chartType === "monthly"
-              ? monthlyData.options
-              : quarterlyData.options
-          }
-          series={
-            chartType === "monthly" ? monthlyData.series : quarterlyData.series
-          }
-          type="bar"
-          height={250}
-        />
-      )}
+
+      <Bar
+        data={chartType === "monthly" ? chartData : quarterlyData}
+        options={options}
+        height={100}
+      />
     </div>
   );
 };
