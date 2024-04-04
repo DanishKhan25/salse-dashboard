@@ -1,15 +1,22 @@
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+"use client";
+
+import { Doughnut } from "react-chartjs-2";
+
 const DonutChart = ({ newCustomers }) => {
-  const series = [44, 55, 41, 17, 15];
-  const options = {
-    chart: {
-      type: "donut",
-    },
-    labels: ["", ""],
-    legend: {
-      show: false,
-    },
+  const data = {
+    labels: ["Sales", "New Customers"],
+    datasets: [
+      {
+        label: "Sales vs New Customers",
+        data: [7000, 3000], // Sample data representing sales and new customers
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.6)", // Red for sales
+          "rgba(54, 162, 235, 0.6)", // Blue for new customers
+        ],
+        borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+        borderWidth: 1,
+      },
+    ],
   };
 
   return (
@@ -22,9 +29,7 @@ const DonutChart = ({ newCustomers }) => {
       }}
     >
       <h3 style={{ textAlign: "center" }}>New Customers</h3>
-      {typeof window !== "undefined" && (
-        <Chart options={options} series={series} type="donut" height={250} />
-      )}
+      <Doughnut data={data} />
     </div>
   );
 };
