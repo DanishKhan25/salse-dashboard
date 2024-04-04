@@ -40,6 +40,8 @@ const SalesChart = () => {
     ],
   };
   const options = {
+    responsive: true,
+    aspectRatio: 1.5,
     scales: {
       y: {
         display: false,
@@ -52,29 +54,28 @@ const SalesChart = () => {
           font: {
             size: 20,
           },
-          position: "top",
         },
       },
     },
   };
   const chartData = {
     labels: [
-      "January",
-      "February",
-      "March",
-      "April",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
       "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
     ],
     datasets: [
       {
-        label: "Overview",
+        label: "Monthly Data",
         data: [100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650],
         backgroundColor: "rgba(54, 162, 235, 0.5)",
         borderColor: "rgba(54, 162, 235, 1)",
@@ -89,12 +90,10 @@ const SalesChart = () => {
   return (
     <div className={styles.chartWrapper}>
       <div className={styles.dropdown}>
-        <div className={styles.chartType}>
-          {chartType === "monthly" ? "Monthly" : "Quarterly"}
-        </div>
+        <div className={styles.chartType}>Overview</div>
         <div>
           <label htmlFor="chartType" className={styles.label}>
-            Select Chart Type:
+            Select Chart Type:{" "}
           </label>
           <select
             id="chartType"
@@ -107,12 +106,13 @@ const SalesChart = () => {
           </select>
         </div>
       </div>
-
-      <Bar
-        data={chartType === "monthly" ? chartData : quarterlyData}
-        options={options}
-        height={100}
-      />
+      <div>
+        <Bar
+          data={chartType === "monthly" ? chartData : quarterlyData}
+          options={options}
+          className={styles.chart}
+        />
+      </div>
     </div>
   );
 };

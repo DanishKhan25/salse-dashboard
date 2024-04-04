@@ -13,37 +13,37 @@ const Sidebar = () => {
     {
       id: 0,
       label: "Dashboard",
-      icon: <MdDashboard width={16} height={16} />,
+      icon: <MdDashboard width={20} height={20} />,
       path: "/",
     },
     {
       id: 1,
       label: "Product",
-      icon: <FaArchive width={16} height={16} />,
+      icon: <FaArchive width={20} height={20} />,
       path: "/",
     },
     {
       id: 2,
       label: "Customers",
-      icon: <FaAddressBook width={16} height={16} />,
+      icon: <FaAddressBook width={20} height={20} />,
       path: "/",
     },
     {
       id: 3,
       label: "Income",
-      icon: <FaWallet width={16} height={16} />,
+      icon: <FaWallet width={20} height={20} />,
       path: "/",
     },
     {
       id: 4,
       label: "Promote",
-      icon: <BiSolidOffer width={16} height={16} />,
+      icon: <BiSolidOffer width={20} height={20} />,
       path: "/",
     },
     {
       id: 5,
       label: "Help",
-      icon: <RiCustomerServiceFill width={16} height={16} />,
+      icon: <RiCustomerServiceFill width={20} height={20} />,
       path: "/",
     },
   ];
@@ -51,8 +51,9 @@ const Sidebar = () => {
   return (
     <main className={classes.sidebarWrapper}>
       <div className={classes.logoWrapper}>
-        <Dashboard width={24} height={24} fill="#fff" />
-
+        <div className={classes.icon}>
+          <Dashboard width={24} height={24} fill="#fff" />
+        </div>
         <h1 className={classes.logo}>Dashboard</h1>
       </div>
       <nav className={classes.nav}>
@@ -65,7 +66,7 @@ const Sidebar = () => {
               backgroundColor: active === link.id ? "#2d2d69" : "transparent",
             }}
           >
-            {link?.icon}
+            <div className={classes.icon}>{link?.icon}</div>
             <div className={classes.label}>{link?.label}</div>
           </div>
         ))}
