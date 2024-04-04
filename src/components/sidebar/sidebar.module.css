@@ -32,7 +32,22 @@
   padding: 0 4px;
   border-radius: 5px;
 }
-
+.icon {
+  line-height: 0;
+}
 .label {
   font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .label,
+  .logo {
+    display: none;
+  }
+  .icon {
+    line-height: 1;
+  }
+  .sidebarWrapper {
+    padding: 5px;
+  }
 }

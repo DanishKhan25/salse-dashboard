@@ -9,7 +9,7 @@ const Header = () => {
   };
   return (
     <main className={styles.headerWrapper}>
-      <div>Hello World 👋,</div>
+      <div className={styles.heading}>Hello World 👋,</div>
       <div className={styles.searchBar}>
         <input
           type="text"

@@ -1,7 +1,7 @@
 "use client";
 
 import { Doughnut } from "react-chartjs-2";
-
+import styles from "./chart.module.css";
 const DonutChart = ({ newCustomers }) => {
   const data = {
     labels: ["Sales", "New Customers"],
@@ -19,6 +19,19 @@ const DonutChart = ({ newCustomers }) => {
     ],
   };
 
+  const options = {
+    responsive: true,
+    aspectRatio: 1.5,
+    legend: {
+      position: "right",
+    },
+    animation: {
+      animateScale: true,
+      animateRotate: true,
+    },
+    cutoutPercentage: 50,
+  };
+
   return (
     <div
       style={{
@@ -29,7 +42,7 @@ const DonutChart = ({ newCustomers }) => {
       }}
     >
       <h3 style={{ textAlign: "center" }}>New Customers</h3>
-      <Doughnut data={data} />
+      <Doughnut data={data} options={options} className={styles.chart} />
     </div>
   );
 };
